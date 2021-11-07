@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Lesson01</string>
+    <string name="ButtonText">Press Me</string>
+    <string name="GreetingsText">Hello World!</string>
+    <string name="textCheckBox">Select sample item</string>
+    <string name="textSwitch">Switch On/Off</string>
+    <string name="tglbtnOff">Down</string>
+    <string name="tglbtnOn">Up</string>
+    <string name="ActivityName2">Пробная страница</string>
+    <string name="Name">Name</string>
+    <string name="Phone">Phone</string>
+    <string name="Pass">Password</string>
 </resources>
