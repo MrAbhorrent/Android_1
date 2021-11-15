@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyButtonStyle" parent="@style/Widget.MaterialComponents.Button">
+        <item name="cornerRadius">@dimen/MyCornerRaduisButton</item>
+        <item name="android:layout_margin">@dimen/Margin4Button</item>
+        <item name="android:textSize">@dimen/StdTextSize</item>
+        <item name="backgroundTint">@android:color/holo_blue_light</item>
+    </style>
+</resources>

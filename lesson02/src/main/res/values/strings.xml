@@ -16,4 +16,6 @@
     <string name="Dot">.</string>
     <string name="Divide">/</string>
     <string name="Equal">=</string>
+    <string name="Inputhint">Введите формулу</string>
+    <string name="PositiveButtonText">Ок</string>
 </resources>
