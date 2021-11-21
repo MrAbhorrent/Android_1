@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:padding="@dimen/StdPadding"
     tools:context=".MainActivity"
+    android:id="@+id/activity_main"
     android:background="@drawable/jut_small">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -19,7 +20,7 @@
         android:gravity="bottom|end"
         android:padding="@dimen/StdPadding"
         android:textSize="@dimen/StdTextSize"
-        android:background="@color/white" />
+        android:background="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,35 +30,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnOne"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:text="@string/_1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTwo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:text="@string/_2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTree"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:text="@string/_3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAdd"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/Plus" />
 
     </LinearLayout>
@@ -70,38 +58,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFour"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFive"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSix"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_6" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMinus"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/Minus" />
     </LinearLayout>
 
@@ -113,35 +85,21 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSeven"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEight"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnNine"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:text="@string/_9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMultiply"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:text="@string/Multiply" />
     </LinearLayout>
@@ -154,40 +112,24 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnZero"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/_0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDot"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/Dot" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDivide"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/Divide" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEqual"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             style="@style/MyButtonStyle"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:shadowColor="@color/cardview_dark_background"
-            android:textSize="@dimen/StdTextSize"
             android:text="@string/Equal" />
     </LinearLayout>
 </LinearLayout>
