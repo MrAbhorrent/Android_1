@@ -4,6 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Note {
+
+    private final static String TYPE_NOTE = "Простой тип";
+
     private Date createDate;            // Дата и время создания заметки
     private String title;               // Заголовок заметки
     private String content;             // Содержимое заметки
@@ -20,6 +23,14 @@ public class Note {
         this.content = content;
         this.typeNote = typeNote;
         this.marked = marked;
+    }
+
+    public Note(Date createDate, String title, String content) {
+        this.createDate = createDate;
+        this.title = title;
+        this.content = content;
+        this.typeNote = TYPE_NOTE;
+        this.marked = false;
     }
 
     public Date getCreateDate() {

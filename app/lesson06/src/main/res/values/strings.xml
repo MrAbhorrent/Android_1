@@ -2,4 +2,8 @@
     <string name="app_name">Lesson06</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="note_title_edit_hint">Название заметки</string>
+    <string name="note_content_edit_hint">Содержимое заметки</string>
+    <string name="about_textDescription">Учебная программа для ведения заметок</string>
+    <string name="about_image_description">Logo</string>
 </resources>
