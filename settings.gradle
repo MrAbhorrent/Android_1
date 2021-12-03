@@ -1,2 +1,4 @@
 rootProject.name = "Lesson01"
 include ':app'
+include ':lesson02'
+include ':app:lesson06'
