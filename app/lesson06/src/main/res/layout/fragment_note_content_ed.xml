@@ -35,6 +35,7 @@
         android:id="@+id/note_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="@dimen/StdMargin"
         android:layout_marginEnd="@dimen/StdMargin"
         android:hint="@string/note_content_edit_hint"

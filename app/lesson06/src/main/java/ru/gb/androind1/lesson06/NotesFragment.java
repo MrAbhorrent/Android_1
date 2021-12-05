@@ -13,7 +13,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -46,6 +49,22 @@ public class NotesFragment extends Fragment {
 
     private void intListView(View view) {
         LinearLayout layoutView = (LinearLayout) view;
+//        LayoutInflater inflater = this.getLayoutInflater();
+//        ListView listView = view.findViewById(R.id.list_item_notes);
+//        final String[] noteTitle = new String[noteList.size()];
+//        for (int i = 0; i < noteList.size(); i++) {
+//            noteTitle[i] = noteList.get(i).getTitle();
+//        }
+//        ArrayAdapter<String> notesTitle = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, noteTitle);
+//        listView.setAdapter(notesTitle);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                currentPosition = position;
+//                showNote(position);
+//                updateBackgroundNotes();
+//            }
+//        });
         for (int i = 0; i < noteList.size(); i++) {
             TextView textView = new TextView(getContext());
             textView.setText(noteList.get(i).getTitle());

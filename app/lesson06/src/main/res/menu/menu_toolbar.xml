@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search_note"
+        android:title="@string/search_note"
+        android:orderInCategory="5"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/add_note"
-        android:title="Добавить заметку"
+        android:title="@string/add_note"
         android:orderInCategory="10"
         android:icon="@drawable/ic_baseline_note_add_24" />
     <item
         android:id="@+id/del_note"
-        android:title="Удалить заметку"
+        android:title="@string/del_note"
         android:orderInCategory="20"
         android:icon="@drawable/ic_sharp_delete_24"
         />

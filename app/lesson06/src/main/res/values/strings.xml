@@ -1,9 +1,17 @@
 <resources>
-    <string name="app_name">Lesson06</string>
+    <string name="app_name">Lesson08</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="note_title_edit_hint">Название заметки</string>
     <string name="note_content_edit_hint">Содержимое заметки</string>
     <string name="about_textDescription">Учебная программа для ведения заметок</string>
     <string name="about_image_description">Logo</string>
+    <string name="search_note">Поиск</string>
+    <string name="add_note">Добавить заметку</string>
+    <string name="del_note">Удалить заметку</string>
+    <string name="about">О программе</string>
+    <string name="exit">Выход</string>
+    <string name="drawer_header">User</string>
+    <string name="navigation_drawer_open">navigation_drawer_open</string>
+    <string name="navigation_drawer_close">navigation_drawer_close</string>
 </resources>
