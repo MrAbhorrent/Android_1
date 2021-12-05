@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvSimpleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/GreetingsText"
+        android:textColor="@color/teal_700"/>
+
+    <EditText
+        android:id="@+id/etSimpleInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/stdMargin"
+        android:gravity="center"
+        android:inputType="number"
+        tools:text="12345"/>
+
+    <Button
+        android:id="@+id/btnSimpleBnt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:backgroundTint="@color/purple_200"
+        android:text="@string/ButtonText"
+        android:layout_marginBottom="@dimen/stdMargin"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Switch
+        android:id="@+id/swSimpleSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textSwitch"
+        android:gravity="center"
+        android:background="@color/teal_200"
+        android:layout_marginLeft="@dimen/stdMargin"
+        android:layout_marginRight="@dimen/stdMargin"/>
+
+    <CheckBox
+        android:id="@+id/chbSimpleCheckBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textCheckBox"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/stdMargin"
+        android:gravity="end"/>
+
+    <ImageView
+        android:id="@+id/imgvSampleImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="@dimen/stdMargin"
+        tools:srcCompat="@tools:sample/avatars"
+        />
+
+    <ToggleButton
+        android:id="@+id/tglbtnSample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/stdMargin"
+        android:layout_marginStart="@dimen/stdMargin"
+        android:layout_marginLeft="@dimen/stdMargin"
+        android:text="Кнопка состояния"
+        android:textOff="@string/tglbtnOff"
+        android:textOn="@string/tglbtnOn" />
+
+</LinearLayout>

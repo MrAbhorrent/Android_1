@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/StdPadding"
+    tools:context=".MainActivity"
+    android:id="@+id/activity_main"
+    android:background="@drawable/jut_small">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOperationArea"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        tools:text="12+45"
+        android:hint="@string/Inputhint"
+        android:gravity="bottom|end"
+        android:padding="@dimen/StdPadding"
+        android:textSize="@dimen/StdTextSize"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOne"
+            style="@style/MyButtonStyle"
+            android:text="@string/_1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTwo"
+            style="@style/MyButtonStyle"
+            android:text="@string/_2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTree"
+            style="@style/MyButtonStyle"
+            android:text="@string/_3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            style="@style/MyButtonStyle"
+            android:text="@string/Plus" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFour"
+            style="@style/MyButtonStyle"
+            android:text="@string/_4" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFive"
+            style="@style/MyButtonStyle"
+            android:text="@string/_5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSix"
+            style="@style/MyButtonStyle"
+            android:text="@string/_6" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMinus"
+            style="@style/MyButtonStyle"
+            android:text="@string/Minus" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSeven"
+            style="@style/MyButtonStyle"
+            android:text="@string/_7" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEight"
+            style="@style/MyButtonStyle"
+            android:text="@string/_8" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNine"
+            style="@style/MyButtonStyle"
+            android:text="@string/_9" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMultiply"
+            style="@style/MyButtonStyle"
+            android:text="@string/Multiply" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnZero"
+            style="@style/MyButtonStyle"
+            android:text="@string/_0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDot"
+            style="@style/MyButtonStyle"
+            android:text="@string/Dot" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDivide"
+            style="@style/MyButtonStyle"
+            android:text="@string/Divide" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEqual"
+            style="@style/MyButtonStyle"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:shadowColor="@color/cardview_dark_background"
+            android:text="@string/Equal" />
+    </LinearLayout>
+</LinearLayout>
