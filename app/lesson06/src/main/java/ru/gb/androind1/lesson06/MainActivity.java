@@ -1,16 +1,22 @@
 package ru.gb.androind1.lesson06;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import android.content.DialogInterface;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -82,19 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         } else if (item.getItemId() == R.id.menu_about) {
             Snackbar.make(this.findViewById(R.id.activity_view), "Показываем инфо о программе", Snackbar.LENGTH_SHORT).show();
-            if (isLandscape()) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .addToBackStack("about")
-                        .replace(R.id.fragment_container_description, new AboutFragment())
-                        .commit();
-            } else {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .addToBackStack("about")
-                        .replace(R.id.fragment_container_notes, new AboutFragment())
-                        .commit();
-            }
+            openAboutFragment();
         } else if (item.getItemId() == R.id.search_note) {
             Snackbar.make(this.findViewById(R.id.activity_view), "Здесь будет поиск", Snackbar.LENGTH_SHORT).show();
         }
@@ -161,7 +155,24 @@ public class MainActivity extends AppCompatActivity {
                         drawer.closeDrawers();
                         return true;
                     case R.id.action_drawer_exit:
-                        finish();
+                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                        builder.setIcon(R.drawable.ic_baseline_west_24)
+                                .setTitle(R.string.exit_From_App)
+                                .setMessage("Вы действительно хотите выйти")
+                                .setPositiveButton(getString(R.string.dialog_positiveButton), new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                    }
+                                })
+                                .setNegativeButton(R.string.dialog_negativeButton, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
                         return true;
                 }
                 return false;
@@ -170,10 +181,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openAboutFragment() {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .addToBackStack("about")
-                .replace(R.id.fragment_container_notes, new AboutFragment())
-                .commit();
+        if (isLandscape()) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack("about")
+                    .replace(R.id.fragment_container_description, new AboutFragment())
+                    .commit();
+        } else {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack("about")
+                    .replace(R.id.fragment_container_notes, new AboutFragment())
+                    .commit();
+        }
     }
 }

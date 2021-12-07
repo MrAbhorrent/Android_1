@@ -10,7 +10,6 @@
     tools:openDrawer="start">
 
     <LinearLayout
-        android:id="@+id/activity_view"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,10 +28,18 @@
                 />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <FrameLayout
-            android:id="@+id/fragment_container_notes"
+        <LinearLayout
+            android:id="@+id/activity_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:id="@+id/fragment_container_notes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
