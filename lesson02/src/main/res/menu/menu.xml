@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/Menu_Settings"
+        android:orderInCategory="50"
+        android:icon="@drawable/ic_baseline_settings_24">
+    </item>
+    <item
+        android:id="@+id/menu_clear"
+        android:title="Очистить экран"
+        android:orderInCategory="70"
+        android:icon="@drawable/ic_sharp_clean_hands_24">
+
+    </item>
+</menu>

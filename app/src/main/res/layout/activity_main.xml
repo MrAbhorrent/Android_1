@@ -60,7 +60,7 @@
         android:layout_gravity="left"
         android:layout_marginLeft="@dimen/stdMargin"
         tools:srcCompat="@tools:sample/avatars"
-        android:src="@drawable/ic_baseline_account_balance_24"/>
+        />
 
     <ToggleButton
         android:id="@+id/tglbtnSample"

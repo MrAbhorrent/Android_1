@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lesson02</string>
+    <string name="app_name">Lesson05</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
     <string name="_3">3</string>
@@ -16,4 +16,12 @@
     <string name="Dot">.</string>
     <string name="Divide">/</string>
     <string name="Equal">=</string>
+    <string name="Inputhint">Введите формулу</string>
+    <string name="PositiveButtonText">Ок</string>
+    <string name="Menu_Settings">Настройки</string>
+    <string name="DarkModeSwitch">Темная тема</string>
+    <string name="MenuSettingsTitle">Настройки приложения</string>
+    <string name="clearDesktop">Очистить экран</string>
+    <string name="textAlertDialogClearText">Начать вычисления заново</string>
+    <string name="txtCancel">Отмена</string>
 </resources>
