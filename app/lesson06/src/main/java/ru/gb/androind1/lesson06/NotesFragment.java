@@ -1,5 +1,6 @@
 package ru.gb.androind1.lesson06;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,17 +10,23 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Map;
 
 public class NotesFragment extends Fragment {
 
@@ -48,24 +55,8 @@ public class NotesFragment extends Fragment {
 
 
     private void intListView(View view) {
-        LinearLayout layoutView = (LinearLayout) view;
-//        LayoutInflater inflater = this.getLayoutInflater();
-//        ListView listView = view.findViewById(R.id.list_item_notes);
-//        final String[] noteTitle = new String[noteList.size()];
-//        for (int i = 0; i < noteList.size(); i++) {
-//            noteTitle[i] = noteList.get(i).getTitle();
-//        }
-//        ArrayAdapter<String> notesTitle = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, noteTitle);
-//        listView.setAdapter(notesTitle);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                currentPosition = position;
-//                showNote(position);
-//                updateBackgroundNotes();
-//            }
-//        });
-        for (int i = 0; i < noteList.size(); i++) {
+
+/*        for (int i = 0; i < noteList.size(); i++) {
             TextView textView = new TextView(getContext());
             textView.setText(noteList.get(i).getTitle());
             textView.setTextSize(26);
@@ -76,22 +67,41 @@ public class NotesFragment extends Fragment {
                 showNote(position);
                 updateBackgroundNotes();
             });
-        }
+        } */
+
+        RecyclerView recyclerView = view.findViewById(R.id.rv_notes_list);
+        NotesListAdapter adapter = new NotesListAdapter(noteList);
+        adapter.setClickListener(new NotesListAdapter.OnNoteClickListener() {
+            @Override
+            public void onNoteClick(View view, int position) {
+                showNote(position);
+                updateBackgroundNotes();
+            }
+        });
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
+        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.separator));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+        ;
         if (currentPosition != -1) {
             showNote(currentPosition);
         }
     }
 
     private void updateBackgroundNotes() {
-        LinearLayout linearLayout = getView().findViewById(R.id.note_list);
+        FrameLayout frameLayout = getView().findViewById(R.id.note_list);
         int colorBackgroud;
-        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+        for (int i = 0; i < frameLayout.getChildCount(); i++) {
             if (i == currentPosition) {
                 colorBackgroud = Color.GRAY;
             } else {
                 colorBackgroud = Color.TRANSPARENT;
             }
-            linearLayout.getChildAt(i).setBackgroundColor(colorBackgroud);
+            frameLayout.getChildAt(i).setBackgroundColor(colorBackgroud);
         }
     }
 
