@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static int selectedPosition = -1;
     public static final String CURRENT_POS = "CURRENT_POS";
     public static List<Note> notesList;
+    public static NoteSource source;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,17 +99,7 @@ public class MainActivity extends AppCompatActivity {
     // Иинициализируем тестовый список заметок
     private void initNotesList() {
 
-        notesList = Arrays.asList(
-                new Note(new Date(System.currentTimeMillis()), "Заметка 1", "Содержимое заметки 1", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 2", "Содержимое заметки 2", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 3", "Содержимое заметки 3", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 4", "Содержимое заметки 4", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 5", "Содержимое заметки 5", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 6", "Содержимое заметки 6", "Простой тип", false),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 7", "Содержимое заметки 7"),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 8", "Содержимое заметки 8"),
-                new Note(new Date(System.currentTimeMillis()), "Заметка 9", "Содержимое заметки 9")
-        );
+        source = new NoteSourceImplementation(this);
     }
 
     private boolean isLandscape() {

@@ -17,4 +17,5 @@
     <string name="exit_From_App">Выход из приложения</string>
     <string name="dialog_positiveButton">Да</string>
     <string name="dialog_negativeButton">Нет</string>
+    <string name="btnSaveNote">Сохранить</string>
 </resources>

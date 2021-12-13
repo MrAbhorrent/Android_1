@@ -1,6 +1,5 @@
 package ru.gb.androind1.lesson06;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,15 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import java.util.Calendar;
 import java.util.List;
 
 public class NoteContentFragment extends Fragment {
 
     static final String ARG_INDEX = "index";
-    private List<Note> noteList = MainActivity.notesList;
+    private NoteSource noteList = MainActivity.source;
 
     TextView tvTileNote, tvDescriptionNote, tvCreationDate;
 
@@ -58,12 +55,12 @@ public class NoteContentFragment extends Fragment {
         mYear = cal.get(Calendar.YEAR);
         mMonth = cal.get(Calendar.MONTH);
         mDay = cal.get(Calendar.DAY_OF_MONTH);
-        tvTileNote = view.findViewById(R.id.note_title);
-        tvDescriptionNote = view.findViewById(R.id.note_description);
+        tvTileNote = view.findViewById(R.id.note_title_edit);
+        tvDescriptionNote = view.findViewById(R.id.note_description_edit);
         tvCreationDate = view.findViewById(R.id.note_createDate);
-        tvTileNote.setText(noteList.get(index).getTitle());
-        tvDescriptionNote.setText(noteList.get(index).getContent());
-        tvCreationDate.setText(noteList.get(index).getCreateDate().toString());
+        tvTileNote.setText(noteList.getNote(index).getTitle());
+        tvDescriptionNote.setText(noteList.getNote(index).getContent());
+        tvCreationDate.setText(noteList.getNote(index).getCreateDate().toString());
         tvCreationDate.setOnClickListener(v -> {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override

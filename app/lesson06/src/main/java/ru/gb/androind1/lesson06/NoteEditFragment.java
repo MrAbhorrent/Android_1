@@ -9,8 +9,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class NoteEditFragment extends Fragment {
+
+    Button btnSave;
+    private NoteSource noteList = MainActivity.source;
+    private NotesListAdapter adapter = NotesFragment.adapter;
 
     public NoteEditFragment() {
         // Required empty public constructor
@@ -38,5 +48,20 @@ public class NoteEditFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        EditText titleNote = view.findViewById(R.id.note_title_edit);
+        EditText descrNote = view.findViewById(R.id.note_description_edit);
+
+
+        btnSave = view.findViewById(R.id.btnSaveNote);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Note newNote = new Note(new Date(System.currentTimeMillis()), titleNote.getText().toString(), descrNote.getText().toString());
+                noteList.addNote(newNote);
+                adapter.notifyDataSetChanged();
+                getActivity().getSupportFragmentManager().popBackStack();;
+            }
+        });
     }
 }

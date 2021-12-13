@@ -1,7 +1,6 @@
 package ru.gb.androind1.lesson06;
 
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,11 +12,11 @@ import java.util.List;
 
 public class NotesListAdapter extends RecyclerView.Adapter<NotesListAdapter.NotesListViewHolder> {
 
-    private List<Note> noteList;
+    private final NoteSource source;
     private OnNoteClickListener clickListener;
 
-    public NotesListAdapter(List<Note> noteList) {
-        this.noteList = noteList;
+    public NotesListAdapter(NoteSource noteList) {
+        this.source = noteList;
     }
 
     public void setClickListener(OnNoteClickListener clickListener) {
@@ -34,12 +33,12 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesListAdapter.Note
     @Override
     public void onBindViewHolder(@NonNull NotesListAdapter.NotesListViewHolder holder, int position) {
 
-        holder.bind(noteList.get(position));
+        holder.bind(source.getNote(position));
     }
 
     @Override
     public int getItemCount() {
-        return noteList.size();
+        return source.size();
     }
 
     class NotesListViewHolder extends RecyclerView.ViewHolder {

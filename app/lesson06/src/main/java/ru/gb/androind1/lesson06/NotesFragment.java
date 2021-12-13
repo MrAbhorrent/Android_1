@@ -32,7 +32,8 @@ public class NotesFragment extends Fragment {
 
     public static final String CURRENT_POS = "CURRENT_POS";
     private int currentPosition = -1;
-    private List<Note> noteList = MainActivity.notesList;
+    private NoteSource noteList = MainActivity.source;
+    public static NotesListAdapter adapter;
 
     public NotesFragment() {
 
@@ -70,7 +71,7 @@ public class NotesFragment extends Fragment {
         } */
 
         RecyclerView recyclerView = view.findViewById(R.id.rv_notes_list);
-        NotesListAdapter adapter = new NotesListAdapter(noteList);
+        adapter = new NotesListAdapter(noteList);
         adapter.setClickListener(new NotesListAdapter.OnNoteClickListener() {
             @Override
             public void onNoteClick(View view, int position) {
