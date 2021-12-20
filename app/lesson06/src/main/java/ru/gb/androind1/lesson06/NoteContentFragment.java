@@ -8,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,12 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
-import java.util.List;
 
 public class NoteContentFragment extends Fragment {
 
     static final String ARG_INDEX = "index";
-    private NoteSource noteList = MainActivity.source;
+    private NoteSource source = MainActivity.source;
 
     TextView tvTileNote, tvDescriptionNote, tvCreationDate;
 
@@ -58,16 +56,13 @@ public class NoteContentFragment extends Fragment {
         tvTileNote = view.findViewById(R.id.note_title_edit);
         tvDescriptionNote = view.findViewById(R.id.note_description_edit);
         tvCreationDate = view.findViewById(R.id.note_createDate);
-        tvTileNote.setText(noteList.getNote(index).getTitle());
-        tvDescriptionNote.setText(noteList.getNote(index).getContent());
-        tvCreationDate.setText(noteList.getNote(index).getCreateDate().toString());
+        tvTileNote.setText(source.getNote(index).getTitle());
+        tvDescriptionNote.setText(source.getNote(index).getContent());
+        tvCreationDate.setText(source.getNote(index).getCreateDate().toString());
         tvCreationDate.setOnClickListener(v -> {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view1, int year, int month, int dayOfMonth) {
-                        String editDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-                        tvCreationDate.setText(editDate);
-                    }
+                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), (view1, year, month, dayOfMonth) -> {
+                    String editDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                    tvCreationDate.setText(editDate);
                 }, mYear, mMonth, mDay);
                 datePickerDialog.show();
         });

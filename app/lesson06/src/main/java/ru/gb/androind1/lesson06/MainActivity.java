@@ -1,8 +1,6 @@
 package ru.gb.androind1.lesson06;
 
-import android.content.DialogInterface;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,23 +10,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static int selectedPosition = -1;
     public static final String CURRENT_POS = "CURRENT_POS";
-    public static List<Note> notesList;
     public static NoteSource source;
 
     @Override
@@ -36,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initNotesList();
         initToolbarAndDrawer();
         if (savedInstanceState == null) {
+            initNotesList();
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container_notes, new NotesFragment())
@@ -99,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
     // Иинициализируем тестовый список заметок
     private void initNotesList() {
 
-        source = new NoteSourceImplementation(this);
+        //source = new NoteSourceImplementation(this);
+        source = new PreferencesNotesSource(getPreferences(MODE_PRIVATE));
     }
 
     private boolean isLandscape() {
@@ -136,38 +128,25 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         // Обработка навигационного меню
         NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                switch (id) {
-                    case R.id.action_drawer_about:
-                        openAboutFragment();
-                        drawer.closeDrawers();
-                        return true;
-                    case R.id.action_drawer_exit:
-                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
-                        builder.setIcon(R.drawable.ic_baseline_west_24)
-                                .setTitle(R.string.exit_From_App)
-                                .setMessage("Вы действительно хотите выйти")
-                                .setPositiveButton(getString(R.string.dialog_positiveButton), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        finish();
-                                    }
-                                })
-                                .setNegativeButton(R.string.dialog_negativeButton, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.cancel();
-                                    }
-                                });
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
-                        return true;
-                }
-                return false;
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.action_drawer_about:
+                    openAboutFragment();
+                    drawer.closeDrawers();
+                    return true;
+                case R.id.action_drawer_exit:
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
+                    builder.setIcon(R.drawable.ic_baseline_west_24)
+                            .setTitle(R.string.exit_From_App)
+                            .setMessage("Вы действительно хотите выйти")
+                            .setPositiveButton(getString(R.string.dialog_positiveButton), (dialog, which) -> finish())
+                            .setNegativeButton(R.string.dialog_negativeButton, (dialog, which) -> dialog.cancel());
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    return true;
             }
+            return false;
         });
     }
 
