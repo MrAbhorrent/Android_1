@@ -1,6 +1,11 @@
 package ru.gb.androind1.lesson02;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+//import android.support.v7.app.AlertDialog;
+//import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,22 +61,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id) {
-            case R.id.btnEqual:
-                // do parse operation string
-                String finalOperationString = textView.getText().toString();
+        if (id == R.id.btnEqual) {// do parse operation string
+            String finalOperationString = textView.getText().toString();
+            if (isDigitSeq.contains(lastSymbol) && isDigitSeq.contains(finalOperationString)) {
+                Toast.makeText(getApplicationContext(), "Недопустимая операция", Toast.LENGTH_SHORT).show();
+            } else {
                 textView.setText(finalOperationString + CalculateOperation(finalOperationString));
                 presenter.clearOperation();
-                break;
-            default:
-                //в текстовое поле добавляем цифру исходя из текста на кнопке
-                String addTextString = ((Button) v).getText().toString();
-                if ((isDigitSeq.contains(lastSymbol)) && isDigitSeq.contains(addTextString)) {
-                    Toast.makeText(getApplicationContext(),"Недопустимая операция", Toast.LENGTH_SHORT).show();
-                } else {
-                    presenter.addOperation(addTextString);
-                    textView.setText(presenter.getOperation());
-                }
+            }
+        } else {//в текстовое поле добавляем цифру исходя из текста на кнопке
+            String addTextString = ((Button) v).getText().toString();
+            if ((isDigitSeq.contains(lastSymbol)) && isDigitSeq.contains(addTextString)) {
+                Toast.makeText(getApplicationContext(), "Недопустимая операция", Toast.LENGTH_SHORT).show();
+            } else {
+                presenter.addOperation(addTextString);
+                textView.setText(presenter.getOperation());
+            }
         }
         lastSymbol = ((Button) v).getText().toString();
     }
@@ -79,6 +84,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String CalculateOperation(CharSequence text) {
 
         String result = "";
+        String operationString = Presenter.getInstance().getOperation();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Строка вычисления")
+                .setMessage(operationString)
+                .setIcon(getResources().getDrawable(R.drawable.ic_baseline_calculate_24))
+                .setPositiveButton(getString(R.string.PositiveButtonText), (dialog, id) -> dialog.dismiss());
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        String[] partOperation = operationString.split("/");
 
         Toast.makeText(getApplicationContext(),"Выполняем вычисление", Toast.LENGTH_SHORT).show();
         return result;
