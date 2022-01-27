@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/purple_200">
+
+    <TextView
+        android:id="@+id/note_createDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        tools:text="@tools:sample/date/ddmmyy"
+        android:layout_marginEnd="@dimen/StdMargin"
+        />
+
+    <EditText
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/StdMargin"
+        android:paddingBottom="@dimen/StdPadding"
+        android:text=""
+        android:hint="@string/note_title_edit_hint"
+        tools:text="@string/note_title_edit_hint"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/note_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="@dimen/StdMargin"
+        android:layout_marginEnd="@dimen/StdMargin"
+        android:hint="@string/note_content_edit_hint"
+        tools:text="@string/note_content_edit_hint"/>
+
+    </ScrollView>
+
+        
+</LinearLayout>
