@@ -20,7 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, Constants {
 
     private static final int REQEST_CODE = 111;
-    private LinearLayout layout;
+    private View layout;
 
     // Имя настроек
     private static final int MyCoolCodeStyle = 0;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
-        layout = (LinearLayout) findViewById(R.id.activity_main);
+        layout = (View) findViewById(R.id.activity_main);
 
         btnOne = findViewById(R.id.btnOne);
         btnTwo = findViewById(R.id.btnTwo);
@@ -195,7 +195,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String CalculateOperation(CharSequence text) {
-
         //String result = "";
         float result = 0f;
         String operationString = Presenter.getInstance().getOperation();

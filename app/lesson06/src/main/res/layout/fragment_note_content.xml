@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/purple_200">
+
+    <TextView
+        android:id="@+id/note_createDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        tools:text="@tools:sample/date/ddmmyy"
+        android:layout_marginEnd="@dimen/StdMargin"
+        />
+
+    <TextView
+        android:id="@+id/note_title_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/StdMargin"
+        android:paddingBottom="@dimen/StdPadding"
+        android:text=""
+        tools:text="@tools:sample/cities"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/note_description_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/StdMargin"
+        android:layout_marginEnd="@dimen/StdMargin"
+        tools:text="@tools:sample/lorem/random"/>
+
+    </ScrollView>
+
+        
+</LinearLayout>
