@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="StdPadding">8dp</dimen>
+    <dimen name="StdTextSize">20sp</dimen>
+    <dimen name="MyCornerRaduisButton">10sp</dimen>
+    <dimen name="Margin4Button">6sp</dimen>
+    <dimen name="StdMargin">16dp</dimen>
+    <dimen name="DoubleMargin">32dp</dimen>
+
+    <dimen name="textSize">20sp</dimen>
+    <dimen name="margin">8dp</dimen>
+</resources>
